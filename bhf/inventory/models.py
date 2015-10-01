@@ -9,11 +9,18 @@ class Image(models.Model):
         return str(self.id)
 
 
+class Keyword(models.Model):
+    word = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.word
+
+
 class Category(models.Model):
     image = models.ManyToManyField(Image)
+    keyword_id = models.ManyToManyField(Keyword)
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=1200)
-    keyword_list = models.TextField(max_length=1500, blank=True)
 
     def __str__(self):
         return self.name
@@ -22,9 +29,9 @@ class Category(models.Model):
 class Subcategory(models.Model):
     image = models.ManyToManyField(Image)
     category_id = models.ForeignKey(Category)
+    keyword_id = models.ManyToManyField(Keyword)
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=1200)
-    keyword_list = models.TextField(max_length=1500, blank=True)
 
     def __str__(self):
         return self.name
