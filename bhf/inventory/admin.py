@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Image, Category, Subcategory, Color, Size, Status
-from .models import Supplier, Product, ProductVariant, Inventory
+from .models import Supplier, Product, ProductVariant, Inventory, Keyword
 
 admin.site.register(Image)
 admin.site.register(Category)
@@ -13,3 +13,4 @@ admin.site.register(Supplier)
 admin.site.register(Product)
 admin.site.register(ProductVariant)
 admin.site.register(Inventory)
+admin.site.register(Keyword)

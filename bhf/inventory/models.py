@@ -18,7 +18,7 @@ class Keyword(models.Model):
 
 class Category(models.Model):
     image = models.ManyToManyField(Image)
-    keyword_id = models.ManyToManyField(Keyword)
+    keyword = models.ManyToManyField(Keyword)
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=1200)
 
@@ -28,8 +28,8 @@ class Category(models.Model):
 
 class Subcategory(models.Model):
     image = models.ManyToManyField(Image)
-    category_id = models.ForeignKey(Category)
-    keyword_id = models.ManyToManyField(Keyword)
+    category = models.ForeignKey(Category)
+    keyword = models.ManyToManyField(Keyword)
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=1200)
 
@@ -92,13 +92,13 @@ class Product(models.Model):
 
 
 class ProductVariant(models.Model):
-    product_id = models.ForeignKey(Product)
-    color_id = models.ForeignKey(Color, blank=True, null=True,
+    product = models.ForeignKey(Product)
+    color = models.ForeignKey(Color, blank=True, null=True,
                                  on_delete=models.SET_NULL)
-    size_id = models.ForeignKey(Size, blank=True, null=True,
+    size = models.ForeignKey(Size, blank=True, null=True,
                                 on_delete=models.SET_NULL)
-    status_id = models.ForeignKey(Status)
-    supplier_id = models.ManyToManyField(Supplier)
+    status = models.ForeignKey(Status)
+    supplier = models.ManyToManyField(Supplier)
     image = models.ManyToManyField(Image)
     upc = models.IntegerField()
     weight = models.CharField(max_length=100, blank=True)
@@ -110,7 +110,7 @@ class ProductVariant(models.Model):
 
 
 class Inventory(models.Model):
-    product_id = models.OneToOneField(ProductVariant)
+    product = models.OneToOneField(ProductVariant)
     quantity_on_hand = models.IntegerField(default=0)
 
     def __str__(self):
