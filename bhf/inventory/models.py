@@ -1,24 +1,20 @@
 from django.db import models
 
 
+def upload_handler(instance, filename):
+    return 'img/{}'.format(filename)
+
+
 class Image(models.Model):
-    image_file = models.ImageField(blank=True)
-    thumbnail_file = models.ImageField(blank=True)
+    image_file = models.ImageField(upload_to=upload_handler, blank=True)
+    thumbnail_file = models.ImageField(upload_to=upload_handler, blank=True)
 
     def __str__(self):
-        return str(self.id)
-
-
-class Keyword(models.Model):
-    word = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.word
+        return self.image_file.name
 
 
 class Category(models.Model):
     image = models.ManyToManyField(Image)
-    keyword = models.ManyToManyField(Keyword)
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=1200)
 
@@ -29,7 +25,6 @@ class Category(models.Model):
 class Subcategory(models.Model):
     image = models.ManyToManyField(Image)
     category = models.ForeignKey(Category)
-    keyword = models.ManyToManyField(Keyword)
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=1200)
 
@@ -52,7 +47,7 @@ class Size(models.Model):
 
     def __str__(self):
         if not self.size_code:
-            return str(self.id)
+            return self.width + ':' + self.length + ':' + self.depth
         else:
             return self.size_code
 
@@ -84,8 +79,8 @@ class Product(models.Model):
     description = models.TextField(max_length=1000)
     short_description = models.TextField(max_length=250, blank=True)
     special_order = models.BooleanField(default=False)
-    category = models.ManyToManyField(Category)
-    subcategory = models.ManyToManyField(Subcategory)
+    category = models.ManyToManyField(Category, blank=True)
+    subcategory = models.ManyToManyField(Subcategory, blank=True)
 
     def __str__(self):
         return self.name
@@ -99,14 +94,15 @@ class ProductVariant(models.Model):
                                 on_delete=models.SET_NULL)
     status = models.ForeignKey(Status)
     supplier = models.ManyToManyField(Supplier)
-    image = models.ManyToManyField(Image)
-    upc = models.IntegerField()
+    image = models.ManyToManyField(Image, blank=True)
+    upc = models.IntegerField(blank=True, null=True)
     weight = models.CharField(max_length=100, blank=True)
     code = models.CharField(max_length=100, blank=True)
     msrp = models.FloatField(default=0)
 
     def __str__(self):
-        return str(self.id)
+        return self.product.name
+        # return str(self.id)
 
 
 class Inventory(models.Model):
@@ -114,6 +110,7 @@ class Inventory(models.Model):
     quantity_on_hand = models.IntegerField(default=0)
 
     def __str__(self):
-        return str(self.id)
+        return self.product.product.name
+        # return str(self.id)
 
 
