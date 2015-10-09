@@ -8,9 +8,10 @@ def upload_handler(instance, filename):
 class Image(models.Model):
     image_file = models.ImageField(upload_to=upload_handler, blank=True)
     thumbnail_file = models.ImageField(upload_to=upload_handler, blank=True)
+    image_alt_text = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.image_file.name
+        return self.image_alt_text
 
 
 class Category(models.Model):
@@ -78,7 +79,6 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=1000)
     short_description = models.TextField(max_length=250, blank=True)
-    special_order = models.BooleanField(default=False)
     category = models.ManyToManyField(Category, blank=True)
     subcategory = models.ManyToManyField(Subcategory, blank=True)
 
@@ -95,6 +95,7 @@ class ProductVariant(models.Model):
     status = models.ForeignKey(Status)
     supplier = models.ManyToManyField(Supplier)
     image = models.ManyToManyField(Image, blank=True)
+    special_order = models.BooleanField(default=False)
     upc = models.IntegerField(blank=True, null=True)
     weight = models.CharField(max_length=100, blank=True)
     code = models.CharField(max_length=100, blank=True)
@@ -102,7 +103,6 @@ class ProductVariant(models.Model):
 
     def __str__(self):
         return self.product.name
-        # return str(self.id)
 
 
 class Inventory(models.Model):
@@ -111,6 +111,5 @@ class Inventory(models.Model):
 
     def __str__(self):
         return self.product.product.name
-        # return str(self.id)
 
 
