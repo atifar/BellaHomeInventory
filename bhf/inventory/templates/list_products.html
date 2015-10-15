@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{ block.super }} - Products
+{% endblock %}
+
+{% block content %}
+    <h1>Product Variants</h1>
+    <ul>
+        {% for prod_var in cust_products %}
+            <li>
+                <img src="{{ prod_var.image.first.thumbnail_file }}"/>
+                {{ prod_var.product.name }} - color: {{ prod_var.color }} - status: {{ prod_var.status }}
+            </li>
+            <li>{{ prod_var.image.first.thumbnail_file }} </li>
+        {% empty %}
+            <li>No products yet.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    {# add scripts specific to this module #}
+{% endblock %}

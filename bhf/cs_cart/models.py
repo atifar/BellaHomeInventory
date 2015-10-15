@@ -11,8 +11,7 @@ class Keyword(models.Model):
 
 
 class CsCartProduct(models.Model):
-    prod_variant = models.ForeignKey(ProductVariant, null=True,
-                                     on_delete=models.SET_NULL)
+    prod_variant = models.ForeignKey(ProductVariant)
     list_price = models.FloatField(default=0)
     page_title = models.CharField(max_length=200)
     meta_description = models.CharField(max_length=1200, blank=True)

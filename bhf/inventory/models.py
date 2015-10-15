@@ -8,7 +8,7 @@ def upload_handler(instance, filename):
 class Image(models.Model):
     image_file = models.ImageField(upload_to=upload_handler, blank=True)
     thumbnail_file = models.ImageField(upload_to=upload_handler, blank=True)
-    image_alt_text = models.CharField(max_length=100)
+    image_alt_text = models.CharField(max_length=100, default='')
 
     def __str__(self):
         return self.image_alt_text
@@ -67,9 +67,9 @@ class Supplier(models.Model):
     city = models.CharField(max_length=80)
     state = models.CharField(max_length=50)
     zip = models.IntegerField()
-    phone = models.IntegerField(blank = True)
-    fax = models.IntegerField(blank = True)
-    email = models.CharField(max_length=200, blank=True)
+    phone = models.BigIntegerField(blank = True, null=True)
+    fax = models.BigIntegerField(blank = True, null=True)
+    email = models.EmailField(max_length=200, blank=True)
 
     def __str__(self):
         return self.name
@@ -88,10 +88,8 @@ class Product(models.Model):
 
 class ProductVariant(models.Model):
     product = models.ForeignKey(Product)
-    color = models.ForeignKey(Color, blank=True, null=True,
-                                 on_delete=models.SET_NULL)
-    size = models.ForeignKey(Size, blank=True, null=True,
-                                on_delete=models.SET_NULL)
+    color = models.ForeignKey(Color)
+    size = models.ForeignKey(Size)
     status = models.ForeignKey(Status)
     supplier = models.ManyToManyField(Supplier)
     image = models.ManyToManyField(Image, blank=True)
@@ -100,16 +98,9 @@ class ProductVariant(models.Model):
     weight = models.CharField(max_length=100, blank=True)
     code = models.CharField(max_length=100, blank=True)
     msrp = models.FloatField(default=0)
+    quantity_on_hand = models.IntegerField(default=0)
+
 
     def __str__(self):
         return self.product.name
-
-
-class Inventory(models.Model):
-    product = models.OneToOneField(ProductVariant)
-    quantity_on_hand = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.product.product.name
-
 
