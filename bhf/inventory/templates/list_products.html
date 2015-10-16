@@ -5,20 +5,38 @@
     {{ block.super }} - Products
 {% endblock %}
 
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'inventory/css/product_list.css' %}">
+{% endblock %}
+
 {% block content %}
-    <h1>Product Variants</h1>
-    <ul>
+    <!--Products - table format-->
+    <h3>Product table</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Product name</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for prod_var in cust_products %}
-            <li>
+            <tr>
+            <td>
                 <img src="{{ prod_var.image.first.thumbnail_file.url }}"
-                alt={{ prod_var.image.first.image_alt_text }} />
-                {{ prod_var.product.name }} - color: {{ prod_var.color }} - status: {{ prod_var.status }}
-            </li>
-            <li>{{ prod_var.image.first.thumbnail_file }} </li>
-        {% empty %}
-            <li>No products yet.</li>
+                     alt={{ prod_var.image.first.image_alt_text }}
+                           class="table-thumb"/>
+            </td>
+            <td>
+                <a href="#" class="inv-table-product">{{ prod_var.product.name }}</a>
+            </td>
+            <td>{{ prod_var.status }}</td>
+        </tr>
         {% endfor %}
-    </ul>
+        </tbody>
+    </table>
 
 {% endblock %}
 

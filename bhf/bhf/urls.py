@@ -12,5 +12,7 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
+
+    # Appending url pattern for serving user uploaded files
     urlpatterns.append(url(r'^media/(?P<path>.*)', 'django.views.static.serve',
                            {'document_root': settings.MEDIA_ROOT}))
