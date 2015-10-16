@@ -18,12 +18,12 @@ class ProductListView(ListView):
         for i, product in enumerate(ProductVariant.objects.all()):
             img = product.image.all()[0]
             cust_products[i] = {
-                'thumb': img.thumbnail_file,
+                'thumb': img.thumbnail_file.url,
                 'name': product.product.name,
                 'color': product.color,
                 'status': product.status
             }
-            print(cust_products[i])
+            print(cust_products[i]['thumb'])
         # context['img'] = cust_products
         return context
 

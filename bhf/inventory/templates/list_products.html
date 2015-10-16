@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 
 {% block title %}
     {{ block.super }} - Products
@@ -10,7 +10,8 @@
     <ul>
         {% for prod_var in cust_products %}
             <li>
-                <img src="{{ prod_var.image.first.thumbnail_file }}"/>
+                <img src="{{ prod_var.image.first.thumbnail_file.url }}"
+                alt={{ prod_var.image.first.image_alt_text }} />
                 {{ prod_var.product.name }} - color: {{ prod_var.color }} - status: {{ prod_var.status }}
             </li>
             <li>{{ prod_var.image.first.thumbnail_file }} </li>
