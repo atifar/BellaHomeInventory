@@ -5,7 +5,6 @@ from inventory.views import list_products, edit_product, list_categories, \
 
 
 urlpatterns = [
-    url(r'^$', list_products),
     url(r'^product/$', list_products, name='product_list'),
     # url(r'^product/new/$', new_product, name='new_product'),
     url(r'^product/(?P<prod_var_id>[0-9]+)/$', edit_product,

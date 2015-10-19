@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ block.super }} - Edit product
+{% endblock %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'inventory/css/product_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h3>Edit product</h3>
+    <p>This page has not yet been implemented.</p>
+    <p><a href="{% url 'product_list' %}">Back to product list</a></p>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    {# add scripts specific to this module #}
+{% endblock %}
