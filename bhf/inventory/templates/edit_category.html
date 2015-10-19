@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ block.super }} - Edit category
+{% endblock %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'inventory/css/product_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h3>Edit category</h3>
+    <form method="POST" >
+        {% csrf_token %}
+        {{ cat_form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    {# add scripts specific to this module #}
+{% endblock %}

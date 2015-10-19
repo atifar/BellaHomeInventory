@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ block.super }} - Categories
+{% endblock %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'inventory/css/product_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!--Categories - table format-->
+    <h3>Categories</h3>
+    <div>
+        <a class="btn btn-default" role="button"
+           href="{% url "new_category" %}">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Category name</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in category_list %}
+            <tr>
+            <td>
+                <img src="{{ category.image.first.thumbnail_file.url }}"
+                     alt={{ category.image.first.image_alt_text }}
+                           class="table-thumb"/>
+            </td>
+            <td>
+                <a href="{% url 'edit_category' category.id %}"
+                   class="inv-table-product">{{ category.name }}</a>
+            </td>
+            <td>
+                <a class="btn btn-default" role="button"
+                   href="{% url "subcategory_list" category_id=category.id %}">Subcategories ...</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    {# add scripts specific to this module #}
+{% endblock %}

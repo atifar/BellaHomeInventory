@@ -11,9 +11,8 @@
 {% endblock %}
 
 {% block content %}
-    {{ block.super }}
     <!--Products - table format-->
-    <h3>Product table</h3>
+    <h3>Products</h3>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -31,7 +30,8 @@
                            class="table-thumb"/>
             </td>
             <td>
-                <a href="#" class="inv-table-product">{{ prod_var.product.name }}</a>
+                <a href="{% url 'edit_product' prod_var.id %}"
+                   class="inv-table-product">{{ prod_var.product.name }}</a>
             </td>
             <td>{{ prod_var.status }}</td>
         </tr>

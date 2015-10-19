@@ -1,17 +1,19 @@
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
+from inventory.views import list_products
 
 urlpatterns = [
     # Examples:
     # url(r'^$', 'bhf.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^$', list_products, name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^inventory/', include('inventory.urls')),
     url(r'^login/$', 'django.contrib.auth.views.login', name='auth_login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout',
-        {'next_page': '/inventory/products'}, name='auth_logout'),
+        {'next_page': '/inventory/'}, name='auth_logout'),
 ]
 
 if settings.DEBUG:
