@@ -21,6 +21,11 @@ def edit_product(request, prod_var_id):
 
 @login_required(login_url='/login')
 def list_categories(request):
+    """
+    Displays a list of all categories.
+    :param request:
+    :return:
+    """
     category_list = Category.objects.all()
     context = {'category_list': category_list}
     return render(request, 'list_categories.html', context)
