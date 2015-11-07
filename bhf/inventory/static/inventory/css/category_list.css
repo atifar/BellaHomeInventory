@@ -1,0 +1,17 @@
+/* Finesse the page header spacing */
+.page-header {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.table-head {
+    font-weight: bold;
+}
+
+.table-thumb {
+    width: 50px;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 2px;
+}

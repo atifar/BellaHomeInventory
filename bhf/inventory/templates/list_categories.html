@@ -7,47 +7,45 @@
 
 {% block stylesheets %}
     {{ block.super }}
-    <link rel="stylesheet" href="{% static 'inventory/css/product_list.css' %}">
+    <link rel="stylesheet" href="{% static 'inventory/css/category_list.css' %}">
 {% endblock %}
 
 {% block content %}
-    <!--Categories - table format-->
-    <h3>Categories</h3>
-    <div>
-        <a class="btn btn-default" role="button"
-           href="{% url "new_category" %}">
-            <span class="glyphicon glyphicon-plus"></span>
-        </a>
-    </div>
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Image</th>
-            <th>Category name</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for category in category_list %}
-            <tr>
-            <td>
-                <img src="{{ category.image.first.thumbnail_file.url }}"
-                     alt={{ category.image.first.image_alt_text }}
-                           class="table-thumb"/>
-            </td>
-            <td>
-                <a href="{% url 'edit_category' category.id %}"
-                   class="inv-table-product">{{ category.name }}</a>
-            </td>
-            <td>
+    <div class="container">
+        <div class="page-header">
+            <h3>Categories</h3>
+            <div>
                 <a class="btn btn-default" role="button"
-                   href="{% url "subcategory_list" category_id=category.id %}">Subcategories ...</a>
-            </td>
-        </tr>
+                   href="{% url "new_category" %}"> <span
+                      class="glyphicon glyphicon-plus"></span> </a>
+            </div>
+        </div>
+        <div class="row table-head">
+            <div class="col-xs-1"><span>Image</span></div>
+            <div class="col-xs-9"><span>Category name</span></div>
+            <div class="col-xs-2"><span>Subcategories</span></div>
+        </div>
+        <hr>
+        {% for category in category_list %}
+            <div class="row">
+                <div class="col-xs-1">
+                    <img src="{{ category.image.first.thumbnail_file.url }}"
+                        alt={{ category.image.first.image_alt_text }}
+                        class="table-thumb"/>
+                </div>
+                <div class="col-xs-9">
+                    <a href="{% url 'edit_category' category.id %}"
+                        class="inv-table-product">{{ category.name }}</a>
+                </div>
+                <div class="col-xs-2">
+                    <a class="btn btn-default" role="button"
+                        href="{% url "subcategory_list" category_id=category.id %}">
+                        Subcategories ...</a>
+                </div>
+            </div>
+            <hr>
         {% endfor %}
-        </tbody>
-    </table>
-
+    </div>
 {% endblock %}
 
 {% block scripts %}
