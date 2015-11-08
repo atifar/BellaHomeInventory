@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}
-    {{ block.super }} - Edit category
+    {{ block.super }} - Edit Subcategory
 {% endblock %}
 
 {% block stylesheets %}
@@ -13,31 +13,49 @@
 {% block content %}
     <div class="container">
         <div class="page-header">
-            <h3>Edit category</h3>
+            <h3>Edit Subcategory</h3>
         </div>
 
         <form class="form-horizontal" method="post"
-              action="{% url 'edit_category' category_id %}">{% csrf_token %}
+              action="{% url 'edit_subcategory' category_id subcategory_id %}">
+            {% csrf_token %}
+
+            <!-- Category - select -->
+            <div class="form-group">
+                {% if subcat_form.category.errors %}
+                    <div class="col-xs-offset-2 col-xs-10">
+                        {% for error in subcat_form.category.errors %}
+                            <p class="text-danger">{{ error|escape }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <label for="id_category" class="control-label col-xs-2">Category</label>
+
+                <div class="col-xs-10">
+                    {{ subcat_form.category }}
+                </div>
+            </div>
+
             <!-- Name - text input -->
             <div class="form-group">
-                {% if cat_form.name.errors %}
+                {% if subcat_form.name.errors %}
                     <div class="col-xs-offset-2 col-xs-10">
-                        {% for error in cat_form.name.errors %}
+                        {% for error in subcat_form.name.errors %}
                             <p class="text-danger">{{ error|escape }}</p>
                         {% endfor %}
                     </div>
                 {% endif %}
                 <label for="id_name" class="control-label col-xs-2">Name</label>
                 <div class="col-xs-10">
-                    {{ cat_form.name }}
+                    {{ subcat_form.name }}
                 </div>
             </div>
 
             <!-- Description - text area "-->
             <div class="form-group">
-                {% if cat_form.description.errors %}
+                {% if subcat_form.description.errors %}
                     <div class="col-xs-offset-2 col-xs-10">
-                        {% for error in cat_form.description.errors %}
+                        {% for error in subcat_form.description.errors %}
                             <p class="text-danger">{{ error|escape }}</p>
                         {% endfor %}
                     </div>
@@ -45,15 +63,15 @@
                <label for="id_description" class="control-label col-xs-2">
                     Description</label>
                 <div class="col-xs-10">
-                    {{ cat_form.description }}
+                    {{ subcat_form.description }}
                 </div>
             </div>
 
             <!-- Image - select multiple -->
             <div class="form-group">
-                {% if cat_form.image.errors %}
+                {% if subcat_form.image.errors %}
                     <div class="col-xs-offset-2 col-xs-10">
-                        {% for error in cat_form.image.errors %}
+                        {% for error in subcat_form.image.errors %}
                             <p class="text-danger">{{ error|escape }}</p>
                         {% endfor %}
                     </div>
@@ -61,7 +79,7 @@
                 <label for="id_image" class="control-label col-xs-2">
                     Image</label>
                 <div class="col-xs-5">
-                    {{ cat_form.image }}
+                    {{ subcat_form.image }}
                 </div>
             </div>
 

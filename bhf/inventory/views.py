@@ -61,7 +61,8 @@ def edit_category(request, category_id):
     # If this view was called upon a GET, render the form.
     else:
         cat_form = CategoryForm(instance=category)
-    return render(request, 'edit_category.html', {'cat_form': cat_form})
+    return render(request, 'edit_category.html', {'cat_form': cat_form,
+                                                  'category_id': category_id})
 
 
 @login_required(login_url='/login')
@@ -104,6 +105,10 @@ def edit_subcategory(request, category_id, subcategory_id):
     # If this view was called upon a GET, render the form.
     else:
         subcat_form = SubcategoryForm(instance=subcategory)
-    return render(request, 'edit_category.html', {'cat_form': subcat_form})
+    print("Got through edit_subcategory view.")
+    print(subcat_form)
+    return render(request, 'edit_subcategory.html', {'subcat_form': subcat_form,
+                                                     'category_id': category_id,
+                                                     'subcategory_id': subcategory_id})
 
 

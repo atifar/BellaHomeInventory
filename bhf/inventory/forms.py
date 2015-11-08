@@ -1,4 +1,4 @@
-from django.forms import ModelForm, CheckboxSelectMultiple, RadioSelect
+from django.forms import ModelForm, Select, SelectMultiple, TextInput, Textarea
 from inventory.models import Category, Color, Image, Product, ProductVariant, \
     Size, Status, Subcategory, Supplier
 
@@ -8,7 +8,11 @@ class CategoryForm(ModelForm):
         model = Category
         fields = ['name', 'description', 'image']
         widgets = {
-            'image': CheckboxSelectMultiple,
+            'name': TextInput(attrs={'class': "form-control",
+                                     'placeholder': "Category name"}),
+            'description': Textarea(attrs={'rows': 4, 'class': "form-control",
+                                           'placeholder': "Category description"}),
+            'image': SelectMultiple(attrs={'class': "form-control"}),
         }
 
 
@@ -56,8 +60,12 @@ class SubcategoryForm(ModelForm):
         model = Subcategory
         fields = ['category', 'name', 'description', 'image']
         widgets = {
-            'category': RadioSelect,
-            'image': CheckboxSelectMultiple,
+            'category': Select(attrs={'class': "form-control"}),
+            'name': TextInput(attrs={'class': "form-control",
+                                     'placeholder': "Category name"}),
+            'description': Textarea(attrs={'rows': 4, 'class': "form-control",
+                                           'placeholder': "Category description"}),
+            'image': SelectMultiple(attrs={'class': "form-control"}),
         }
 
 
