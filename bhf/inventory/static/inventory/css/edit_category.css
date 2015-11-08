@@ -6,3 +6,10 @@
     border-radius: 2px;
 }
 
+.output_box {
+    margin-top: 15px;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    height: auto;
+    overflow: visible;
+}
