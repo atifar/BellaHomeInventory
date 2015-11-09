@@ -12,6 +12,13 @@
 
 {% block content %}
     <div class="container">
+        <div class="breadcrumb-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="{% url "home" %}">Home</a></li>
+                <li><a href="{% url "category_list" %}">Categories</a></li>
+                <li class="active">New</li>
+            </ul>
+        </div>
         <div class="page-header">
             <h3>New category</h3>
         </div>

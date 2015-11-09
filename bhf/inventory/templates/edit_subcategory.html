@@ -12,12 +12,22 @@
 
 {% block content %}
     <div class="container">
+        <div class="breadcrumb-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="{% url "home" %}">Home</a></li>
+                <li><a href="{% url "category_list" %}">Categories</a></li>
+                <li>{{ category_id }}</li>
+                <li><a href="{% url "subcategory_list" category_id %}">
+                    Subcategories</a></li>
+                <li class="active">{{ subcategory.id }}</li>
+            </ul>
+        </div>
         <div class="page-header">
             <h3>Edit Subcategory</h3>
         </div>
 
         <form class="form-horizontal" method="post"
-              action="{% url 'edit_subcategory' category_id subcategory_id %}">
+              action="{% url 'edit_subcategory' category_id subcategory.id %}">
             {% csrf_token %}
 
             <!-- Category - select -->

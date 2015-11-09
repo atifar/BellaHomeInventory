@@ -7,38 +7,53 @@
 
 {% block stylesheets %}
     {{ block.super }}
-    <link rel="stylesheet" href="{% static 'inventory/css/product_list.css' %}">
+    <link rel="stylesheet" href="{% static 'inventory/css/category_list.css' %}">
 {% endblock %}
 
 {% block content %}
-    <!--Products - table format-->
-    <h3>Products</h3>
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Image</th>
-            <th>Product name</th>
-            <th>Status</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="container">
+        <div class="breadcrumb-wrapper">
+            <ul class="breadcrumb">
+                <li><a href="{% url "home" %}">Home</a></li>
+                <li class="active">Products</li>
+            </ul>
+        </div>
+        <div class="page-header">
+            <h3>Products</h3>
+            <div>
+                <a class="btn btn-default" role="button"
+                   href="{% url "new_product" %}"> <span
+                      class="glyphicon glyphicon-plus"></span> </a>
+            </div>
+        </div>
+        <div class="row table-head">
+            <div class="col-xs-1"><span>Image</span></div>
+            <div class="col-xs-7"><span>Product name</span></div>
+            <div class="col-xs-3"><span>Code</span></div>
+            <div class="col-xs-1"><span>Status</span></div>
+        </div>
+        <hr>
         {% for prod_var in product_list %}
-            <tr>
-            <td>
-                <img src="{{ prod_var.image.first.thumbnail_file.url }}"
-                     alt={{ prod_var.image.first.image_alt_text }}
-                           class="table-thumb"/>
-            </td>
-            <td>
-                <a href="{% url 'edit_product' prod_var.id %}"
-                   class="inv-table-product">{{ prod_var.product.name }}</a>
-            </td>
-            <td>{{ prod_var.status }}</td>
-        </tr>
+            <div class="row">
+                <div class="col-xs-1">
+                    <img src="{{ prod_var.image.first.thumbnail_file.url }}"
+                         alt={{ prod_var.image.first.image_alt_text }}
+                               class="table-thumb"/>
+                </div>
+                <div class="col-xs-7">
+                    <a href="{% url 'edit_product' prod_var.id %}"
+                       class="inv-table-product">{{ prod_var.product.name }}</a>
+                </div>
+                <div class="col-xs-3">
+                    <p>{{ prod_var.code }}</p>
+                </div>
+                <div class="col-xs-1">
+                    <p>{{ prod_var.status }}</p>
+                </div>
+            </div>
+            <hr>
         {% endfor %}
-        </tbody>
-    </table>
-
+    </div>
 {% endblock %}
 
 {% block scripts %}

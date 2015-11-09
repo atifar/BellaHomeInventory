@@ -1,12 +1,12 @@
 from django.conf.urls import url
-from inventory.views import list_products, edit_product, list_categories, \
-    edit_category, new_category, list_subcategories, edit_subcategory, \
-    new_subcategory
+from inventory.views import list_products, edit_product, new_product, \
+    list_categories, edit_category, new_category, list_subcategories,  \
+    edit_subcategory, new_subcategory
 
 
 urlpatterns = [
     url(r'^product/$', list_products, name='product_list'),
-    # url(r'^product/new/$', new_product, name='new_product'),
+    url(r'^product/new/$', new_product, name='new_product'),
     url(r'^product/(?P<prod_var_id>[0-9]+)/$', edit_product,
         name='edit_product'),
     url(r'^category/$', list_categories, name='category_list'),

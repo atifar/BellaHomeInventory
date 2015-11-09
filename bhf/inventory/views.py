@@ -8,9 +8,28 @@ from .models import Category, Color, Image, Product, ProductVariant, Size, \
 
 @login_required(login_url='/login')
 def list_products(request):
-    product_list = ProductVariant.objects.all()
+    product_list = ProductVariant.objects.order_by('product__name')
     context = {'product_list': product_list}
     return render(request, 'list_products.html', context)
+
+
+@login_required(login_url='/login')
+def new_product(request):
+    # Check if a POST has been submitted.
+    if request.POST:
+        # Load the category form.
+        prod_form = ProductForm(request.POST)
+        prodv_form = ProductVariantForm(request.POST)
+        # If the form data is valid, save it.
+        if prod_form.is_valid():
+            prod_form.save()
+            return redirect('product_list')
+    # If this view was called upon a GET, render the form.
+    else:
+        prod_form = ProductForm()
+        prodv_form = ProductVariantForm()
+    return render(request, 'new_product.html', {'prod_form': prod_form,
+                                                'prodv_form': prodv_form})
 
 
 @login_required(login_url='/login')
@@ -26,7 +45,7 @@ def list_categories(request):
     :param request:
     :return:
     """
-    category_list = Category.objects.all()
+    category_list = Category.objects.order_by('name')
     context = {'category_list': category_list}
     return render(request, 'list_categories.html', context)
 
@@ -62,14 +81,13 @@ def edit_category(request, category_id):
     else:
         cat_form = CategoryForm(instance=category)
     return render(request, 'edit_category.html', {'cat_form': cat_form,
-                                                  'category_id': category_id,
                                                   'category': category})
 
 
 @login_required(login_url='/login')
 def list_subcategories(request, category_id):
     category = get_object_or_404(Category, pk=category_id)
-    subcategory_list = category.subcategory_set.all()
+    subcategory_list = category.subcategory_set.order_by('name')
     context = {'category': category, 'subcategory_list': subcategory_list}
     return render(request, 'list_subcategories.html', context)
 
@@ -109,7 +127,6 @@ def edit_subcategory(request, category_id, subcategory_id):
         subcat_form = SubcategoryForm(instance=subcategory)
     return render(request, 'edit_subcategory.html', {'subcat_form': subcat_form,
                                                      'category_id': category_id,
-                                                     'subcategory_id': subcategory_id,
                                                      'subcategory': subcategory})
 
 
