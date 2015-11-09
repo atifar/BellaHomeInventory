@@ -80,7 +80,20 @@
                     {{ cat_form.image }}
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col-xs-offset-2">
+                </div>
+                {% for img in category.image.all %}
+                    {% if forloop.first %}
+                        <div class="col-xs-offset-2 col-xs-2">
+                    {% else %}
+                        <div class="col-xs-2">
+                    {% endif %}
+                        <a href="#" class="thumbnail">
+                            <img src="{{ img.image_file.url }}"></a>
+                        </div>
+                    {% endfor %}
+            </div>
             <!-- Submit button -->
             <div class="form-group">
                 <div class="col-xs-offset-2 col-xs-10">

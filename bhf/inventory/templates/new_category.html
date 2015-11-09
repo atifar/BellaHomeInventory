@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}
-    {{ block.super }} - Edit Subcategory
+    {{ block.super }} - New category
 {% endblock %}
 
 {% block stylesheets %}
@@ -13,49 +13,32 @@
 {% block content %}
     <div class="container">
         <div class="page-header">
-            <h3>Edit Subcategory</h3>
+            <h3>New category</h3>
         </div>
 
         <form class="form-horizontal" method="post"
-              action="{% url 'edit_subcategory' category_id subcategory_id %}">
-            {% csrf_token %}
-
-            <!-- Category - select -->
-            <div class="form-group">
-                {% if subcat_form.category.errors %}
-                    <div class="col-xs-offset-2 col-xs-10">
-                        {% for error in subcat_form.category.errors %}
-                            <p class="text-danger">{{ error|escape }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-                <label for="id_category" class="control-label col-xs-2">Category</label>
-
-                <div class="col-xs-10">
-                    {{ subcat_form.category }}
-                </div>
-            </div>
+              action="{% url 'new_category' %}">{% csrf_token %}
 
             <!-- Name - text input -->
             <div class="form-group">
-                {% if subcat_form.name.errors %}
+                {% if cat_form.name.errors %}
                     <div class="col-xs-offset-2 col-xs-10">
-                        {% for error in subcat_form.name.errors %}
+                        {% for error in cat_form.name.errors %}
                             <p class="text-danger">{{ error|escape }}</p>
                         {% endfor %}
                     </div>
                 {% endif %}
                 <label for="id_name" class="control-label col-xs-2">Name</label>
                 <div class="col-xs-10">
-                    {{ subcat_form.name }}
+                    {{ cat_form.name }}
                 </div>
             </div>
 
             <!-- Description - text area "-->
             <div class="form-group">
-                {% if subcat_form.description.errors %}
+                {% if cat_form.description.errors %}
                     <div class="col-xs-offset-2 col-xs-10">
-                        {% for error in subcat_form.description.errors %}
+                        {% for error in cat_form.description.errors %}
                             <p class="text-danger">{{ error|escape }}</p>
                         {% endfor %}
                     </div>
@@ -63,7 +46,7 @@
                <label for="id_description" class="control-label col-xs-2">
                     Description</label>
                 <div class="col-xs-10">
-                    {{ subcat_form.description }}
+                    {{ cat_form.description }}
                 </div>
             </div>
 
@@ -71,7 +54,8 @@
             <div class="form-group">
                 <div class="col-xs-offset-2 col-xs-10">
                     <button type="button" id="render" class="btn btn-default">
-                        Render</button>
+                        Render
+                    </button>
                 </div>
 
                 <div class="col-xs-offset-2 col-xs-10">
@@ -83,9 +67,9 @@
 
             <!-- Image - select multiple -->
             <div class="form-group">
-                {% if subcat_form.image.errors %}
+                {% if cat_form.image.errors %}
                     <div class="col-xs-offset-2 col-xs-10">
-                        {% for error in subcat_form.image.errors %}
+                        {% for error in cat_form.image.errors %}
                             <p class="text-danger">{{ error|escape }}</p>
                         {% endfor %}
                     </div>
@@ -93,24 +77,24 @@
                 <label for="id_image" class="control-label col-xs-2">
                     Image</label>
                 <div class="col-xs-5">
-                    {{ subcat_form.image }}
+                    {{ cat_form.image }}
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-offset-2">
                 </div>
-                {% for img in subcategory.image.all %}
+                {% for img in category.image.all %}
                     {% if forloop.first %}
                         <div class="col-xs-offset-2 col-xs-2">
                     {% else %}
                         <div class="col-xs-2">
                     {% endif %}
-                        <a href="#" class="thumbnail"> <img
-                              src="{{ img.image_file.url }}"></a>
+                        <a href="#" class="thumbnail">
+                            <img src="{{ img.image_file.url }}"></a>
                         </div>
-                {% endfor %}
-                </div>
-                <!-- Submit button -->
+                    {% endfor %}
+            </div>
+            <!-- Submit button -->
             <div class="form-group">
                 <div class="col-xs-offset-2 col-xs-10">
                     <button type="submit" class="save btn btn-default">Save

@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}
-    {{ block.super }} - Edit Subcategory
+    {{ block.super }} - New Subcategory
 {% endblock %}
 
 {% block stylesheets %}
@@ -13,11 +13,11 @@
 {% block content %}
     <div class="container">
         <div class="page-header">
-            <h3>Edit Subcategory</h3>
+            <h3>New Subcategory</h3>
         </div>
 
         <form class="form-horizontal" method="post"
-              action="{% url 'edit_subcategory' category_id subcategory_id %}">
+              action="{% url 'new_subcategory' category_id %}">
             {% csrf_token %}
 
             <!-- Category - select -->

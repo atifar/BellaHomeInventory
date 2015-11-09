@@ -44,7 +44,7 @@ def new_category(request):
     # If this view was called upon a GET, render the form.
     else:
         cat_form = CategoryForm()
-    return render(request, 'edit_category.html', {'cat_form': cat_form})
+    return render(request, 'new_category.html', {'cat_form': cat_form})
 
 
 @login_required(login_url='/login')
@@ -62,7 +62,8 @@ def edit_category(request, category_id):
     else:
         cat_form = CategoryForm(instance=category)
     return render(request, 'edit_category.html', {'cat_form': cat_form,
-                                                  'category_id': category_id})
+                                                  'category_id': category_id,
+                                                  'category': category})
 
 
 @login_required(login_url='/login')
@@ -75,7 +76,7 @@ def list_subcategories(request, category_id):
 
 @login_required(login_url='/login')
 def new_subcategory(request, category_id):
-    category = get_object_or_404(Category, pk=category_id)
+    #category = get_object_or_404(Category, pk=category_id)
     # Check if a POST has been submitted.
     if request.POST:
         # Load the subcategory form.
@@ -87,7 +88,8 @@ def new_subcategory(request, category_id):
     # If this view was called upon a GET, render the form.
     else:
         subcat_form = SubcategoryForm()
-    return render(request, 'edit_category.html', {'cat_form': subcat_form})
+    return render(request, 'new_subcategory.html', {'subcat_form': subcat_form,
+                                                    'category_id': category_id})
 
 
 @login_required(login_url='/login')
@@ -105,10 +107,9 @@ def edit_subcategory(request, category_id, subcategory_id):
     # If this view was called upon a GET, render the form.
     else:
         subcat_form = SubcategoryForm(instance=subcategory)
-    print("Got through edit_subcategory view.")
-    print(subcat_form)
     return render(request, 'edit_subcategory.html', {'subcat_form': subcat_form,
                                                      'category_id': category_id,
-                                                     'subcategory_id': subcategory_id})
+                                                     'subcategory_id': subcategory_id,
+                                                     'subcategory': subcategory})
 
 
