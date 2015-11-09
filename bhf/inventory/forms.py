@@ -1,4 +1,5 @@
-from django.forms import ModelForm, Select, SelectMultiple, TextInput, Textarea
+from django.forms import CheckboxInput, ModelForm, NumberInput, Select, \
+    SelectMultiple, Textarea, TextInput
 from inventory.models import Category, Color, Image, Product, ProductVariant, \
     Size, Status, Subcategory, Supplier
 
@@ -33,14 +34,41 @@ class ProductForm(ModelForm):
         model = Product
         fields = ['name', 'description', 'short_description', 'category',
                   'subcategory']
+        widgets = {
+            'name': TextInput(attrs={'class': "form-control",
+                                     'placeholder': "Product name"}),
+            'description': Textarea(attrs={'rows': 4, 'class': "form-control",
+                                           'placeholder': "Product description"}),
+            'short_description': Textarea(
+                attrs={'rows': 4, 'class': "form-control",
+                       'placeholder': "Product short description"}),
+            'category': SelectMultiple(attrs={'class': "form-control"}),
+            'subcategory': SelectMultiple(attrs={'class': "form-control"}),
+        }
 
 
 class ProductVariantForm(ModelForm):
     class Meta:
         model = ProductVariant
         fields = ['product', 'color', 'size', 'status', 'supplier', 'image',
-                  'special_order', 'upc', 'weight', 'code', 'msrp',
+                  'upc', 'weight', 'code', 'msrp', 'special_order',
                   'quantity_on_hand']
+        exclude = ['product']
+        widgets = {
+            'color': Select(attrs={'class': "form-control"}),
+            'size': Select(attrs={'class': "form-control"}),
+            'status': Select(attrs={'class': "form-control"}),
+            'supplier': SelectMultiple(attrs={'class': "form-control"}),
+            'image': SelectMultiple(attrs={'class': "form-control"}),
+            'upc': NumberInput(attrs={'class': "form-control"}),
+            'weight': TextInput(attrs={'class': "form-control",
+                                       'placeholder': "Item weight"}),
+            'code': TextInput(attrs={'class': "form-control",
+                                     'placeholder': "Internal code"}),
+            'msrp': NumberInput(attrs={'class': "form-control"}),
+            'quantity_on_hand': NumberInput(attrs={'class': "form-control"}),
+            'special_order': CheckboxInput(attrs={'class': "form-control"}),
+        }
 
 
 class SizeForm(ModelForm):

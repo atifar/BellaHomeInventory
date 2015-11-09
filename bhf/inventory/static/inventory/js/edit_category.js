@@ -1,6 +1,7 @@
-// Handles the rendering of the description field content, which may be HTML
+// Handles the rendering of text area field content that may be HTML
 // formatted text.
 
+// ///////////// Category description /////////////
 // Grab the render button, description textarea, output text box
 var render_button = document.getElementById("render");
 
@@ -14,6 +15,6 @@ function renderDescription(e) {
     var description = $("#id_description").html();
     // Decode the encoded HTML content
     var decoded = $("<div/>").html(description).text();
-    // Insert the description into the render box
+    // Insert the decoded HTML into the render box
     $('#output_box').html(decoded);
 };

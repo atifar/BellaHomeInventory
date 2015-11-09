@@ -17,12 +17,15 @@ def list_products(request):
 def new_product(request):
     # Check if a POST has been submitted.
     if request.POST:
-        # Load the category form.
+        # Generate the product and product variant forms.
         prod_form = ProductForm(request.POST)
         prodv_form = ProductVariantForm(request.POST)
         # If the form data is valid, save it.
-        if prod_form.is_valid():
-            prod_form.save()
+        if prod_form.is_valid() and prodv_form.is_valid():
+            updated_prod = prod_form.save()
+            updated_prod_var = prodv_form.save(commit=False)
+            updated_prod_var.product = updated_prod
+            updated_prod_var.save()
             return redirect('product_list')
     # If this view was called upon a GET, render the form.
     else:
@@ -34,8 +37,29 @@ def new_product(request):
 
 @login_required(login_url='/login')
 def edit_product(request, prod_var_id):
+    # Fetch the product and product variant objects to edit.
     prod_var = get_object_or_404(ProductVariant, pk=prod_var_id)
-    return render(request, 'edit_product.html', {'prod_var': prod_var})
+    product = prod_var.product
+    # Check if a POST has been submitted.
+    if request.POST:
+        # Generate the product and product variant forms.
+        prod_form = ProductForm(request.POST, instance=product)
+        prodv_form = ProductVariantForm(request.POST, instance=prod_var)
+        # If the form data is valid, save it.
+        if prod_form.is_valid() and prodv_form.is_valid():
+            updated_prod = prod_form.save()
+            updated_prod_var = prodv_form.save(commit=False)
+            updated_prod_var.product = updated_prod
+            updated_prod_var.save()
+            return redirect('product_list')
+    # If this view was called upon a GET, render the form.
+    else:
+        prod_form = ProductForm(instance=product)
+        prodv_form = ProductVariantForm(instance=prod_var)
+    return render(request, 'edit_product.html', {'prod_var': prod_var,
+                                                 'product': product,
+                                                 'prod_form': prod_form,
+                                                 'prodv_form': prodv_form})
 
 
 @login_required(login_url='/login')
@@ -54,7 +78,7 @@ def list_categories(request):
 def new_category(request):
     # Check if a POST has been submitted.
     if request.POST:
-        # Load the category form.
+        # Generate the category form.
         cat_form = CategoryForm(request.POST)
         # If the form data is valid, save it.
         if cat_form.is_valid():
@@ -68,10 +92,11 @@ def new_category(request):
 
 @login_required(login_url='/login')
 def edit_category(request, category_id):
+    # Fetch the category object to edit.
     category = get_object_or_404(Category, pk=category_id)
     # Check if a POST has been submitted.
     if request.POST:
-        # Load the category form.
+        # Generate the category form.
         cat_form = CategoryForm(request.POST, instance=category)
         # If the form data is valid, save it.
         if cat_form.is_valid():
@@ -94,10 +119,10 @@ def list_subcategories(request, category_id):
 
 @login_required(login_url='/login')
 def new_subcategory(request, category_id):
-    #category = get_object_or_404(Category, pk=category_id)
+    # category = get_object_or_404(Category, pk=category_id)
     # Check if a POST has been submitted.
     if request.POST:
-        # Load the subcategory form.
+        # Generate the subcategory form.
         subcat_form = SubcategoryForm(request.POST)
         # If the form data is valid, save it.
         if subcat_form.is_valid():
@@ -116,7 +141,7 @@ def edit_subcategory(request, category_id, subcategory_id):
     subcategory = category.subcategory_set.get(pk=subcategory_id)
     # Check if a POST has been submitted.
     if request.POST:
-        # Load the subcategory form.
+        # Generate the subcategory form.
         subcat_form = SubcategoryForm(request.POST, instance=subcategory)
         # If the form data is valid, save it.
         if subcat_form.is_valid():
