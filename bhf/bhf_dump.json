@@ -1,0 +1,912 @@
+[
+{
+  "model": "inventory.image",
+  "pk": 6,
+  "fields": {
+    "thumbnail_file": "img/cats-q-g-160-120-7.jpeg",
+    "image_file": "img/cats-q-g-640-480-7.jpg",
+    "image_alt_text": "Kitty outdoors"
+  }
+},
+{
+  "model": "inventory.image",
+  "pk": 7,
+  "fields": {
+    "thumbnail_file": "img/city-q-g-160-120-4.jpeg",
+    "image_file": "img/city-q-g-640-480-4.jpg",
+    "image_alt_text": "New York night skyline"
+  }
+},
+{
+  "model": "inventory.image",
+  "pk": 8,
+  "fields": {
+    "thumbnail_file": "img/fashion-q-c-160-120-3.jpeg",
+    "image_file": "img/fashion-q-c-640-480-3.jpg",
+    "image_alt_text": "Fashionable people"
+  }
+},
+{
+  "model": "inventory.image",
+  "pk": 9,
+  "fields": {
+    "thumbnail_file": "img/transport-q-g-160-120-4.jpeg",
+    "image_file": "img/transport-q-g-640-480-4.jpg",
+    "image_alt_text": "Double decker"
+  }
+},
+{
+  "model": "inventory.image",
+  "pk": 10,
+  "fields": {
+    "thumbnail_file": "img/transport-q-g-160-120-8.jpeg",
+    "image_file": "img/transport-q-g-640-480-8.jpg",
+    "image_alt_text": "MINI Cooper"
+  }
+},
+{
+  "model": "inventory.category",
+  "pk": 2,
+  "fields": {
+    "description": "<p><span style=\"font-family: times new roman,times;\"><span style=\"font-size: medium;\"><span style=\"color: #000000;\"><strong><em>Quilts</em></strong> are an <strong><em>American Tradition</em></strong> and with good reason. Layer quilts with other bedding or use a quilt alone to change the look of your room. Keep an extra quilt handy for quick layers year round. Since our quilts get softer with each washing these are the perfect easy care look.<br /><strong><em>Bella Home Fashions</em></strong> offers a variety of discount quilt styles.&nbsp; <strong><em>French Country</em></strong>, <strong><em>Romantic Chic 'n Shabby</em></strong>, <strong><em>Cottage Chic</em></strong>, <strong><em>Lodge</em></strong>, <strong><em>Primitive Americana</em></strong>, <strong><em>Contemporary</em></strong> and <strong><em>Hotel </em></strong>are the primary styles we offer.<br />Please browse our categories to find the quilt style of your preference.&nbsp; You will find that some of the quilts cross over into other styles and will complement a variety of decorating styles.</span></span></span></p>",
+    "image": [
+      7
+    ],
+    "name": "Quilts"
+  }
+},
+{
+  "model": "inventory.category",
+  "pk": 3,
+  "fields": {
+    "description": "<p><span style=\"font-family: times new roman,times;\"><span style=\"font-size: medium;\"><span style=\"color: #000000;\">Browse our <strong><em>duvet cover</em></strong> categories to find the style you are looking for. <strong><em>Bella Home Fashions</em></strong> offer a wide selection of <strong><em>discount duvet comforter covers</em></strong> giving you the immediate ability to change the look and style of your bedroom. A Duvet Cover is another term for Comforter Cover. It's like a large <em>pillow case</em> and is used to cover a comforter but has button, zipper or tie closures to stay on. This also makes your duvet comforter cover easy to clean. Using a duvet cover makes changing your bedroom decor easy and quick.</span></span></span></p>",
+    "image": [
+      9
+    ],
+    "name": "Duvet Covers"
+  }
+},
+{
+  "model": "inventory.category",
+  "pk": 4,
+  "fields": {
+    "description": "<p><span style=\"font-family: times new roman,times;\"><span style=\"font-size: medium;\"><span style=\"color: #000000;\">Enjoy unsurpassed quality with our <strong><em>Luxurious Cotton Discount Sheet Sets</em></strong>. You will find comfort and modern style in these fine sheet sets. High thread counts, fine craftsmanship and well appointed details will provide you with long lasting comfort.</span></span></span></p>",
+    "image": [
+      9,
+      6
+    ],
+    "name": "Sheet Sets"
+  }
+},
+{
+  "model": "inventory.category",
+  "pk": 5,
+  "fields": {
+    "description": "Best furniture selection in town. Come one, come all!",
+    "image": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "name": "Furniture"
+  }
+},
+{
+  "model": "inventory.category",
+  "pk": 6,
+  "fields": {
+    "description": "<p><span style=\"font-family: times new roman,times;\"><span style=\"font-size: medium;\"><span style=\"color: #000000;\"><strong><em>Discount Bedding Accessories</em></strong> assist in completing the overall design style you are going for. <strong><em>Window treatments</em></strong>, <strong><em>accent rugs</em></strong>, <strong><em>decorative throw&nbsp;pillows</em></strong>, <em><strong>dust ruffles / bed skirts</strong></em>, <em><strong>pillow shams</strong></em>, <em><strong>shower curtains</strong> </em>and other significant items can complete or dramatically enhance your design look.</span></span></span></p>",
+    "image": [
+      8
+    ],
+    "name": "Bedding Accessories"
+  }
+},
+{
+  "model": "inventory.category",
+  "pk": 7,
+  "fields": {
+    "description": "These items are on sale now.",
+    "image": [
+      7,
+      8,
+      9
+    ],
+    "name": "On Sale NOW"
+  }
+},
+{
+  "model": "inventory.category",
+  "pk": 8,
+  "fields": {
+    "description": "Nice cushy pillows",
+    "image": [
+      9,
+      7
+    ],
+    "name": "Pillows"
+  }
+},
+{
+  "model": "inventory.category",
+  "pk": 9,
+  "fields": {
+    "description": "lrewufxgwerg",
+    "image": [
+      7
+    ],
+    "name": "Fancy new category"
+  }
+},
+{
+  "model": "inventory.category",
+  "pk": 10,
+  "fields": {
+    "description": "This happens to be a <b>VERY BERRY CATEGORY</b> that nobody can deny.",
+    "image": [
+      8,
+      10
+    ],
+    "name": "Very Berry Category"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 2,
+  "fields": {
+    "description": "Bedspreads under Quilts.\r\nwerlflryeeaclukbewlscbwedly eluyl",
+    "image": [
+      9
+    ],
+    "category": 4,
+    "name": "Bedspreads"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 3,
+  "fields": {
+    "description": "Quilts under Quilts",
+    "image": [
+      7
+    ],
+    "category": 2,
+    "name": "Quilts"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 4,
+  "fields": {
+    "description": "<b>Matelasse</b> under Quilts",
+    "image": [
+      6
+    ],
+    "category": 2,
+    "name": "Matelasse"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 5,
+  "fields": {
+    "description": "Comforter Bedding Sets under Duvet Covers",
+    "image": [
+      8
+    ],
+    "category": 3,
+    "name": "Comforter Bedding Sets"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 6,
+  "fields": {
+    "description": "<p><span style=\"font-family: times new roman,times;\"><span style=\"font-size: medium;\"><span style=\"color: #000000;\"><strong><em>Quilts</em></strong> are an <strong><em>American Tradition</em></strong> and with good reason. Layer quilts with other bedding or use a quilt alone to change the look of your room. Keep an extra quilt handy for quick layers year round. Since our quilts get softer with each washing these are the perfect easy care look.<br /><strong><em>Bella Home Fashions</em></strong> offers a variety of discount quilt styles.&nbsp; <strong><em>French Country</em></strong>, <strong><em>Romantic Chic 'n Shabby</em></strong>, <strong><em>Cottage Chic</em></strong>, <strong><em>Lodge</em></strong>, <strong><em>Primitive Americana</em></strong>, <strong><em>Contemporary</em></strong> and <strong><em>Hotel </em></strong>are the primary styles we offer.<br />Please browse our categories to find the quilt style of your preference.&nbsp; You will find that some of the quilts cross over into other styles and will complement a variety of decorating styles.</span></span></span></p>",
+    "image": [
+      7,
+      9
+    ],
+    "category": 5,
+    "name": "In Store Specials"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 7,
+  "fields": {
+    "description": "Hotel Chic Style Quilts under Quilts",
+    "image": [
+      7,
+      8
+    ],
+    "category": 2,
+    "name": "Hotel Chic Style Quilts"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 8,
+  "fields": {
+    "description": "Quilt Sham under Bedding Accessories",
+    "image": [
+      6
+    ],
+    "category": 6,
+    "name": "Quilt Sham"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 9,
+  "fields": {
+    "description": "Not just another thing.",
+    "image": [
+      7,
+      8
+    ],
+    "category": 4,
+    "name": "Fancy Subcategory with a Twist"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 10,
+  "fields": {
+    "description": "Not just another thing.",
+    "image": [
+      8
+    ],
+    "category": 4,
+    "name": "Fancy Subcategory"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 11,
+  "fields": {
+    "description": "Blah blah blah",
+    "image": [
+      8
+    ],
+    "category": 5,
+    "name": "Noname"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 12,
+  "fields": {
+    "description": "Nice sub pillows",
+    "image": [
+      9
+    ],
+    "category": 8,
+    "name": "Sub Pillows"
+  }
+},
+{
+  "model": "inventory.subcategory",
+  "pk": 13,
+  "fields": {
+    "description": "Fruit flavors that everyone likes can be had for not too much money here. Get your flavor before the supply is depleted by the masses. Bon appetite!!",
+    "image": [
+      7,
+      9
+    ],
+    "category": 10,
+    "name": "Halle Berry"
+  }
+},
+{
+  "model": "inventory.color",
+  "pk": 1,
+  "fields": {
+    "color": "blue"
+  }
+},
+{
+  "model": "inventory.color",
+  "pk": 2,
+  "fields": {
+    "color": "red"
+  }
+},
+{
+  "model": "inventory.color",
+  "pk": 3,
+  "fields": {
+    "color": "beige"
+  }
+},
+{
+  "model": "inventory.color",
+  "pk": 4,
+  "fields": {
+    "color": "black"
+  }
+},
+{
+  "model": "inventory.color",
+  "pk": 5,
+  "fields": {
+    "color": "green"
+  }
+},
+{
+  "model": "inventory.color",
+  "pk": 6,
+  "fields": {
+    "color": "yellow"
+  }
+},
+{
+  "model": "inventory.color",
+  "pk": 7,
+  "fields": {
+    "color": "gray"
+  }
+},
+{
+  "model": "inventory.color",
+  "pk": 8,
+  "fields": {
+    "color": "N/A"
+  }
+},
+{
+  "model": "inventory.color",
+  "pk": 9,
+  "fields": {
+    "color": "black/white"
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 1,
+  "fields": {
+    "size_code": "Full",
+    "depth": "",
+    "width": "",
+    "length": ""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 2,
+  "fields": {
+    "size_code": "twin (quilt)",
+    "depth": "",
+    "width": "",
+    "length": ""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 3,
+  "fields": {
+    "size_code": "queen (quilt)",
+    "depth": "",
+    "width": "",
+    "length": ""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 4,
+  "fields": {
+    "size_code": "king (quilt)",
+    "depth": "",
+    "width": "",
+    "length": ""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 5,
+  "fields": {
+    "size_code": "",
+    "depth": "",
+    "width": "24\"",
+    "length": "36\""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 6,
+  "fields": {
+    "size_code": "",
+    "depth": "",
+    "width": "102\"",
+    "length": "92\""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 7,
+  "fields": {
+    "size_code": "",
+    "depth": "",
+    "width": "10\"",
+    "length": "20\""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 8,
+  "fields": {
+    "size_code": "",
+    "depth": "26\"",
+    "width": "32\"",
+    "length": "32\""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 9,
+  "fields": {
+    "size_code": "N/A",
+    "depth": "",
+    "width": "",
+    "length": ""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 10,
+  "fields": {
+    "size_code": "Double",
+    "depth": "",
+    "width": "",
+    "length": ""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 11,
+  "fields": {
+    "size_code": "Queen",
+    "depth": "",
+    "width": "",
+    "length": ""
+  }
+},
+{
+  "model": "inventory.size",
+  "pk": 12,
+  "fields": {
+    "size_code": "King",
+    "depth": "",
+    "width": "",
+    "length": ""
+  }
+},
+{
+  "model": "inventory.status",
+  "pk": 2,
+  "fields": {
+    "status": "active"
+  }
+},
+{
+  "model": "inventory.status",
+  "pk": 3,
+  "fields": {
+    "status": "disabled"
+  }
+},
+{
+  "model": "inventory.status",
+  "pk": 4,
+  "fields": {
+    "status": "hidden"
+  }
+},
+{
+  "model": "inventory.supplier",
+  "pk": 1,
+  "fields": {
+    "state": "HI",
+    "zip": 4532,
+    "name": "Bedding Inc.",
+    "phone": 5551234567,
+    "address2": "Suite C",
+    "email": "bedding@beddingco.net",
+    "fax": 5557654321,
+    "address": "22 N Main St",
+    "city": "Plushville"
+  }
+},
+{
+  "model": "inventory.supplier",
+  "pk": 2,
+  "fields": {
+    "state": "SD",
+    "zip": 76432,
+    "name": "Ginormous Company",
+    "phone": 8889114781,
+    "address2": "#23",
+    "email": "bigshot@ginormous.com",
+    "fax": null,
+    "address": "900 Clovis Ln",
+    "city": "Drabtown"
+  }
+},
+{
+  "model": "inventory.supplier",
+  "pk": 3,
+  "fields": {
+    "state": "UT",
+    "zip": 45309,
+    "name": "Noname Manufacturer",
+    "phone": null,
+    "address2": "Suite 80",
+    "email": "client@twocanplay.net",
+    "fax": 9821110455,
+    "address": "1 Prairie Road",
+    "city": "Gravelton"
+  }
+},
+{
+  "model": "inventory.product",
+  "pk": 1,
+  "fields": {
+    "short_description": "",
+    "description": "<p><span style=\"font-family: times new roman,times;\"><span style=\"font-size: medium;\"><span style=\"color: #000000;\">This drop leaf accent table has a warm brown finish top with a black base and would make a wonderful piece for your entry, hall way, end table or a unique bedside table.<br />The table top measures approximately 17 inches wide with leafs down and 32 inches wide with them up and it is 25 &frac12; inches tall.<br />This accent table features 2 drop leafs and drawer.<br />With our Buy More Save More Sale take an extra discount off our already low price making this table just $224.</span></span></span></p>",
+    "subcategory": [
+      6
+    ],
+    "category": [
+      5
+    ],
+    "name": "Drop Leaf Accent Table"
+  }
+},
+{
+  "model": "inventory.product",
+  "pk": 2,
+  "fields": {
+    "short_description": "",
+    "description": "<p><span style=\"font-family: times new roman,times;\"><span style=\"font-size: medium;\"><span style=\"color: #000000;\">Sophisticated and exotic, this Zebra print Sheet Set will turn your room into an exotic retreat. The 300 thread count 100% cotton of this ensemble has a silky smooth feel. Features a Black and White Zebra print. <br />Easy care, machine washable, tumble dry.&nbsp;&nbsp; <br />Twin Sheet Set includes: Twin Flat Sheet, Twin deep fitted Sheet for mattresses up to 15 inches deep and one Standard Pillowcase<br />Full Sheet Set includes: Full Flat Sheet, Full deep fitted Sheet for mattresses up to 15 inches deep and two Standard Pillowcases<br />Queen Sheet Set includes:&nbsp; Queen flat sheet, Queen deep fitted sheet for mattresses up to 15 inches deep and two Queen pillowcases<br />King Sheet Set includes:&nbsp; King flat sheet, King deep fitted sheet for mattresses up to 15 inches deep and two King pillowcases</span></span></span></p>",
+    "subcategory": [],
+    "category": [
+      4
+    ],
+    "name": "Zebra Black and White Animal Print 300 Thread Count Cotton Sheet Set"
+  }
+},
+{
+  "model": "inventory.product",
+  "pk": 3,
+  "fields": {
+    "short_description": "",
+    "description": "<p><span style=\"font-family: times new roman,times;\"><span style=\"font-size: medium;\"><span style=\"color: #000000;\">This gorgeous quilt is made from 100% Pre-washed 200 thread count cotton. Both shell and fill are 100% cotton and if you know quilts, only the best are made from cotton, fill and shell. Perfect for almost any decor!!<br />Beautiful workmanship with intricate stitching through out. 100% Cotton for softness and durability. Sure to last for generations. <br />Gorgeous Ivory color. Reverses to the same Ivory on the reverse, stitching is identical too!! The attention to detail in this quilt set is amazing! <br />Easy care machine washable, tumble dry.<br />Twin Quilt measures 68 inches wide by 86 inches long <strong><em><span style=\"color: #ff0000;\">Sold Out<br /></span></em></strong>Queen Quilt measures 90 inches wide by 90 inches long <br />King Quilt measures 105 inches wide by 95 inches long</span></span></span></p>",
+    "subcategory": [
+      7,
+      4
+    ],
+    "category": [
+      2
+    ],
+    "name": "Hotel Style Ivory Matelasse Quilt"
+  }
+},
+{
+  "model": "inventory.product",
+  "pk": 4,
+  "fields": {
+    "short_description": "Horatio never foresaw the fate of his <b>beloved</b>.",
+    "description": "<p><span style=\"font-family: times new roman,times;\"><span style=\"font-size: large;\"><span style=\"color: #000000;\">Add <strong><em>bold character</em></strong> to your space with the Vida quilt sham. Yellow and gray chevrons create sharp, geometric lines.&nbsp; Reverses to a fine-point zig zag print for a herringbone look. Machine quilted in coordinating chevron pattern for durability and surface interest. Prewashed and preshrunk. Edges are tightly fabric bound for durability. Machine quilted. All cotton face, back and fill.&nbsp; <br />Care instructions: Machine wash.&nbsp;&nbsp; <br />Standard quilt sham measures 20 inches by 26 inches<br />King quilt sham measures 20 inches by 36 inches</span></span></span></p>",
+    "subcategory": [
+      3
+    ],
+    "category": [
+      6
+    ],
+    "name": "Quilt Sham Chevron Herringbone Yellow Gray Modern"
+  }
+},
+{
+  "model": "inventory.product",
+  "pk": 5,
+  "fields": {
+    "short_description": "Notwithstanding any scrutiny, lorem ipsum blah blah blah.",
+    "description": "Notwithstanding any scrutiny, lorem ipsum blah blah blah.",
+    "subcategory": [
+      9,
+      6
+    ],
+    "category": [
+      5,
+      7
+    ],
+    "name": "The awesome new product"
+  }
+},
+{
+  "model": "inventory.product",
+  "pk": 6,
+  "fields": {
+    "short_description": "Still no description can be <i><b>provided</b></i>.",
+    "description": "No description can be <i><b>provided</b></i>.",
+    "subcategory": [
+      10
+    ],
+    "category": [
+      9
+    ],
+    "name": "Beautiful Vase"
+  }
+},
+{
+  "model": "inventory.productvariant",
+  "pk": 1,
+  "fields": {
+    "special_order": false,
+    "weight": "",
+    "size": 7,
+    "quantity_on_hand": 0,
+    "code": "GHF_SH_VIDA",
+    "msrp": 0.0,
+    "upc": null,
+    "image": [
+      8
+    ],
+    "supplier": [
+      1
+    ],
+    "product": 4,
+    "color": 6,
+    "status": 3
+  }
+},
+{
+  "model": "inventory.productvariant",
+  "pk": 2,
+  "fields": {
+    "special_order": false,
+    "weight": "",
+    "size": 7,
+    "quantity_on_hand": 27,
+    "code": "GHF_SH_VIDA",
+    "msrp": 4.35,
+    "upc": null,
+    "image": [
+      6
+    ],
+    "supplier": [
+      1
+    ],
+    "product": 4,
+    "color": 7,
+    "status": 2
+  }
+},
+{
+  "model": "inventory.productvariant",
+  "pk": 3,
+  "fields": {
+    "special_order": false,
+    "weight": "",
+    "size": 11,
+    "quantity_on_hand": 54,
+    "code": "EE_SS_ZEBRABLACK",
+    "msrp": 20.34,
+    "upc": 12345678,
+    "image": [
+      9,
+      10
+    ],
+    "supplier": [
+      2,
+      3
+    ],
+    "product": 2,
+    "color": 9,
+    "status": 2
+  }
+},
+{
+  "model": "inventory.productvariant",
+  "pk": 4,
+  "fields": {
+    "special_order": true,
+    "weight": "15lbs",
+    "size": 8,
+    "quantity_on_hand": 0,
+    "code": "SW_FURN_DROPLEAF",
+    "msrp": 0.0,
+    "upc": null,
+    "image": [
+      6
+    ],
+    "supplier": [
+      2
+    ],
+    "product": 1,
+    "color": 8,
+    "status": 4
+  }
+},
+{
+  "model": "inventory.productvariant",
+  "pk": 5,
+  "fields": {
+    "special_order": false,
+    "weight": "",
+    "size": 9,
+    "quantity_on_hand": 5,
+    "code": "BLA_NOCOLOR_FOO",
+    "msrp": 20.0,
+    "upc": null,
+    "image": [
+      9
+    ],
+    "supplier": [
+      2
+    ],
+    "product": 5,
+    "color": 8,
+    "status": 2
+  }
+},
+{
+  "model": "inventory.productvariant",
+  "pk": 6,
+  "fields": {
+    "special_order": true,
+    "weight": "",
+    "size": 9,
+    "quantity_on_hand": 0,
+    "code": "FUN_IN_THE_SUN",
+    "msrp": 0.0,
+    "upc": null,
+    "image": [
+      10
+    ],
+    "supplier": [
+      3
+    ],
+    "product": 6,
+    "color": 8,
+    "status": 3
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 1,
+  "fields": {
+    "word": "quilt"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 2,
+  "fields": {
+    "word": "throw"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 3,
+  "fields": {
+    "word": "hearth"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 4,
+  "fields": {
+    "word": "cottage"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 5,
+  "fields": {
+    "word": "vintage"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 6,
+  "fields": {
+    "word": "discount bedding"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 7,
+  "fields": {
+    "word": "rug"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 8,
+  "fields": {
+    "word": "damask"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 9,
+  "fields": {
+    "word": "washable rug"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 10,
+  "fields": {
+    "word": "furniture"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 11,
+  "fields": {
+    "word": "discount"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 12,
+  "fields": {
+    "word": "bedding sets"
+  }
+},
+{
+  "model": "cs_cart.keyword",
+  "pk": 13,
+  "fields": {
+    "word": "accessories"
+  }
+},
+{
+  "model": "cs_cart.cscartcategory",
+  "pk": 1,
+  "fields": {
+    "keyword": [
+      6,
+      10
+    ],
+    "page_title": "Furniture | Discount Bedding Sets Portland, OR",
+    "status": 3,
+    "category": 5,
+    "meta_description": "We have many items available for pick up in our store that is just too large to effectively ship. These items include Couch\u2019s, Love Seats, Chairs, Ottomans, and Bedroom Sets."
+  }
+},
+{
+  "model": "cs_cart.cscartcategory",
+  "pk": 2,
+  "fields": {
+    "keyword": [
+      2,
+      6,
+      13
+    ],
+    "page_title": "Bedding Accessories | Discount Bedding Sets Portland, OR",
+    "status": 2,
+    "category": 6,
+    "meta_description": "Home decor accessories assist in completing design style from Window treatments, accent rugs, decorator pillows, dust ruffles, bed skirts, pillow shams, shower curtains, clocks to chandeliers."
+  }
+},
+{
+  "model": "cs_cart.cscartcategory",
+  "pk": 3,
+  "fields": {
+    "keyword": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "page_title": "Cotton Quilts | Discount Bedding Sets - Quilt Patterns",
+    "status": 2,
+    "category": 2,
+    "meta_description": "We provide the highest quality discount quilts at the lowest price. We feature discount bedding from today\u2019s hottest decorating styles."
+  }
+}
+]
