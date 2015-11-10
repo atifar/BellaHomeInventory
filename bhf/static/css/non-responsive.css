@@ -5,6 +5,7 @@
 
 /* Account for fixed navbar */
 body {
+    background-color: #dcdcdc;
     padding-top: 70px;
     padding-bottom: 30px;
 }

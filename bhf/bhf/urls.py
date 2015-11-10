@@ -1,14 +1,14 @@
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
-from inventory.views import list_products
+from inventory.views import homepage
 
 urlpatterns = [
     # Examples:
     # url(r'^$', 'bhf.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$', list_products, name='home'),
+    url(r'^$', homepage, name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^inventory/', include('inventory.urls')),
     url(r'^login/$', 'django.contrib.auth.views.login',

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ block.super }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'inventory/css/category_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="breadcrumb-wrapper">
+            <ul class="breadcrumb">
+                <li class="active">Home</li>
+            </ul>
+        </div>
+        <div class="page-header">
+            <h3>BHF Inventory - Admin</h3>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-wrapper">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><a
+                          href="{% url 'product_list' %}">Inventory</a></div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="panel-body">Base products <span
+                                  class="badge">{{ product_count }}</span></div></div>
+                        <div class="col-xs-3">
+                            <div class="panel-body">Product variants <span
+                                  class="badge">{{ prod_var_count }}</span></div></div>
+                        <div class="col-xs-3">
+                            <div class="panel-body">Categories <span
+                                  class="badge">{{ category_count }}</span></div></div>
+                        <div class="col-xs-3">
+                            <div class="panel-body">Subcategories <span
+                                  class="badge">{{ subcategory_count }}</span></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12 col-wrapper">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Bella Home Fashions Listings</div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="panel-body">Base products <span
+                                  class="badge">0</span></div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="panel-body">Product variants <span
+                                  class="badge">0</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="panel-body">Categories <span
+                                  class="badge">0</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="panel-body">Subcategories <span
+                                  class="badge">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12 col-wrapper">
+                <div class="panel panel-default">
+                    <div class="panel-heading">eBay Listings</div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="panel-body">Base products <span
+                                  class="badge">0</span></div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="panel-body">Product variants <span
+                                  class="badge">0</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="panel-body">Categories <span
+                                  class="badge">0</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="panel-body">Subcategories <span
+                                  class="badge">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    {# add scripts specific to this module #}
+{% endblock %}

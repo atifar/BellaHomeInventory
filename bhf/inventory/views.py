@@ -7,6 +7,19 @@ from .models import Category, Color, Image, Product, ProductVariant, Size, \
 
 
 @login_required(login_url='/login')
+def homepage(request):
+    counts = {}
+    counts['category_count'] = Category.objects.count()
+    counts['subcategory_count'] = Subcategory.objects.count()
+    counts['product_count'] = Product.objects.count()
+    counts['prod_var_count'] = ProductVariant.objects.count()
+    print(counts)
+    product_list = ProductVariant.objects.order_by('product__name')
+    # context = {'product_list': product_list}
+    return render(request, 'index.html', counts)
+
+
+@login_required(login_url='/login')
 def list_products(request):
     product_list = ProductVariant.objects.order_by('product__name')
     context = {'product_list': product_list}
