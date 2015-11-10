@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator
 from django.forms import CheckboxInput, ModelForm, NumberInput, Select, \
     SelectMultiple, Textarea, TextInput
 from inventory.models import Category, Color, Image, Product, ProductVariant, \
@@ -48,6 +49,28 @@ class ProductForm(ModelForm):
 
 
 class ProductVariantForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ProductVariantForm, self).__init__(*args, **kwargs)
+
+        # Adding MinValueValidator(0) to prevent negative 'upc' values.
+        validators = [v for v in self.fields['upc'].validators if
+                      not isinstance(v, MinValueValidator)]
+        validators.append(MinValueValidator(0))
+        self.fields['upc'].validators = validators
+
+        # Adding MinValueValidator(0) to prevent negative 'msrp' values.
+        validators = [v for v in self.fields['msrp'].validators if
+                      not isinstance(v, MinValueValidator)]
+        validators.append(MinValueValidator(0))
+        self.fields['msrp'].validators = validators
+
+        # Adding MinValueValidator(0) to prevent negative 'quantity_on_hand'
+        # values.
+        validators = [v for v in self.fields['quantity_on_hand'].validators if
+                      not isinstance(v, MinValueValidator)]
+        validators.append(MinValueValidator(0))
+        self.fields['quantity_on_hand'].validators = validators
+
     class Meta:
         model = ProductVariant
         fields = ['product', 'color', 'size', 'status', 'supplier', 'image',

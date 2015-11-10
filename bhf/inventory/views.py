@@ -26,6 +26,7 @@ def new_product(request):
             updated_prod_var = prodv_form.save(commit=False)
             updated_prod_var.product = updated_prod
             updated_prod_var.save()
+            prodv_form.save_m2m()
             return redirect('product_list')
     # If this view was called upon a GET, render the form.
     else:
@@ -51,6 +52,7 @@ def edit_product(request, prod_var_id):
             updated_prod_var = prodv_form.save(commit=False)
             updated_prod_var.product = updated_prod
             updated_prod_var.save()
+            prodv_form.save_m2m()
             return redirect('product_list')
     # If this view was called upon a GET, render the form.
     else:
@@ -153,5 +155,4 @@ def edit_subcategory(request, category_id, subcategory_id):
     return render(request, 'edit_subcategory.html', {'subcat_form': subcat_form,
                                                      'category_id': category_id,
                                                      'subcategory': subcategory})
-
 
