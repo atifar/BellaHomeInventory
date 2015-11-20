@@ -8,19 +8,19 @@ from .models import Category, Color, Image, Product, ProductVariant, Size, \
 
 @login_required(login_url='/login')
 def homepage(request):
+    """Builds a dashboard with inventory summary."""
+# Counts list contains the number of inventory items for the summary.
     counts = {}
     counts['category_count'] = Category.objects.count()
     counts['subcategory_count'] = Subcategory.objects.count()
     counts['product_count'] = Product.objects.count()
     counts['prod_var_count'] = ProductVariant.objects.count()
-    print(counts)
-    product_list = ProductVariant.objects.order_by('product__name')
-    # context = {'product_list': product_list}
     return render(request, 'index.html', counts)
 
 
 @login_required(login_url='/login')
 def list_products(request):
+    """Lists products with some key attributes."""
     product_list = ProductVariant.objects.order_by('product__name')
     context = {'product_list': product_list}
     return render(request, 'list_products.html', context)
@@ -28,6 +28,7 @@ def list_products(request):
 
 @login_required(login_url='/login')
 def new_product(request):
+    """Add a new product and define all its attributes."""
     # Check if a POST has been submitted.
     if request.POST:
         # Generate the product and product variant forms.
@@ -51,6 +52,7 @@ def new_product(request):
 
 @login_required(login_url='/login')
 def edit_product(request, prod_var_id):
+    """Edit all attributes of a product."""
     # Fetch the product and product variant objects to edit.
     prod_var = get_object_or_404(ProductVariant, pk=prod_var_id)
     product = prod_var.product
@@ -79,11 +81,7 @@ def edit_product(request, prod_var_id):
 
 @login_required(login_url='/login')
 def list_categories(request):
-    """
-    Displays a list of all categories.
-    :param request:
-    :return:
-    """
+    """Lists categories with some key attributes."""
     category_list = Category.objects.order_by('name')
     context = {'category_list': category_list}
     return render(request, 'list_categories.html', context)
@@ -91,6 +89,7 @@ def list_categories(request):
 
 @login_required(login_url='/login')
 def new_category(request):
+    """Add new category and define all its attributes."""
     # Check if a POST has been submitted.
     if request.POST:
         # Generate the category form.
@@ -107,6 +106,7 @@ def new_category(request):
 
 @login_required(login_url='/login')
 def edit_category(request, category_id):
+    """Edit all attributes of a category."""
     # Fetch the category object to edit.
     category = get_object_or_404(Category, pk=category_id)
     # Check if a POST has been submitted.
@@ -126,6 +126,7 @@ def edit_category(request, category_id):
 
 @login_required(login_url='/login')
 def list_subcategories(request, category_id):
+    """Lists subcategories with some key attributes."""
     category = get_object_or_404(Category, pk=category_id)
     subcategory_list = category.subcategory_set.order_by('name')
     context = {'category': category, 'subcategory_list': subcategory_list}
@@ -134,6 +135,7 @@ def list_subcategories(request, category_id):
 
 @login_required(login_url='/login')
 def new_subcategory(request, category_id):
+    """Add new subcategory and define all its attributes."""
     # category = get_object_or_404(Category, pk=category_id)
     # Check if a POST has been submitted.
     if request.POST:
@@ -146,12 +148,13 @@ def new_subcategory(request, category_id):
     # If this view was called upon a GET, render the form.
     else:
         subcat_form = SubcategoryForm()
-    return render(request, 'new_subcategory.html', {'subcat_form': subcat_form,
-                                                    'category_id': category_id})
+    return render(request, 'new_subcategory.html',
+                  {'subcat_form': subcat_form, 'category_id': category_id})
 
 
 @login_required(login_url='/login')
 def edit_subcategory(request, category_id, subcategory_id):
+    """Edit all attributes of a subcategory."""
     category = get_object_or_404(Category, pk=category_id)
     subcategory = category.subcategory_set.get(pk=subcategory_id)
     # Check if a POST has been submitted.
@@ -165,7 +168,6 @@ def edit_subcategory(request, category_id, subcategory_id):
     # If this view was called upon a GET, render the form.
     else:
         subcat_form = SubcategoryForm(instance=subcategory)
-    return render(request, 'edit_subcategory.html', {'subcat_form': subcat_form,
-                                                     'category_id': category_id,
-                                                     'subcategory': subcategory})
-
+    return render(request, 'edit_subcategory.html',
+                  {'subcat_form': subcat_form, 'category_id': category_id,
+                   'subcategory': subcategory})
